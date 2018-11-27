@@ -31,7 +31,7 @@ int main()
 {
     //****************************** Record Settings ******************************//
     int DeviceNumber = 0;
-    int RecDuration = 300;
+    int RecDuration = 15;
     int FrameRate = 30;
     int FrameSamples = FrameRate * RecDuration;
     //***************************** Hardware Settings *****************************//
@@ -50,13 +50,14 @@ int main()
     cout << endl;
     cout << "************************** VIDEO CAPTURE ***************************" << endl;
     cout << " Device Connected: Camera " << DeviceNumber << endl;
-    cout << " Record Duration: " << RecDuration << " Seconds" << endl;
-    cout << " Frame Rate: " << FrameRate << " Frames/Second" << endl;
-    cout << " Total Frame: " << FrameSamples << endl;
+    cout << " Record Duration : " << RecDuration << " Seconds" << endl;
+    cout << " Frame Rate      : " << FrameRate << " Frames/Second" << endl;
+    cout << " Total Frame     : " << FrameSamples << endl;
+    cout << " Record Mode     : OFF SCREEN" << endl;
     cout << "********************************************************************" << endl;
     cout << endl;
     cout << "CAMERA READY" << endl;
-    cout << "Press ENTER to Start Recording" << endl;
+    cout << "Press ENTER to Start Recording or Press CTRL+C to exit" << endl;
     getchar();
     waitKey(1000);
     cout << "Start in: " << endl;
@@ -86,10 +87,11 @@ int main()
             cout << "Frame " << RecFrameCount << " Stored in buffer" << endl;
         }
     }
-        cout << "Complete" << endl;
-        cout << "Buffer Size: " << FrameBufferVec.size() << " Frames" << endl;
-        cout << "Press Enter to Start Playback" << endl;
-        getchar();
+    cout << endl;
+    cout << "COMPLETE!!" << endl;
+    cout << "Buffer Size: " << FrameBufferVec.size() << " Frames" << endl;
+    cout << "Press Enter to Start Playback" << endl;
+    getchar();
     //****************************** Video Playback ******************************//
     for (int index = 0; index < FrameSamples; index++){
 
@@ -100,6 +102,10 @@ int main()
         } 
         waitKey(33);
     }
+    cout << endl;
+    cout << "Playback Finished" << endl;
+    cout << "Press ENTER to Exit Program" << endl;
+    getchar();
     FrameBufferVec.clear();
     return 1;
 }
