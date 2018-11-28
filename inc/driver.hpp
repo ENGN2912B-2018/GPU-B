@@ -27,7 +27,6 @@ using namespace std;
 
 namespace gpub
 {
-
 	class Frame{
 		/*
 		 * This class was designed to use OpenCL for video capture
@@ -75,7 +74,6 @@ namespace gpub
 
 		/************************************ Buffer Get *****************************************/
 			Mat frameGetFrame(){ 										// Take Current Frame and Move Pointer to Next
-
 				unsigned long long int thisFrame = ptBufferFrame;
 				if (thisFrame < RecFrameCount){
 					ptBufferFrame ++;
