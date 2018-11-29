@@ -3,7 +3,7 @@
  * Author      : Ziwei Chen
  * Date        : Nov-23-2018
  * Modified    : Ziwei Chen
- * Modify Date : Nov-27-2018
+ * Modify Date : Nov-29-2018
  * 
  * Description : This program was designed to test the video capture
  *               using OpenCV and buffer. Hardware camera is required
@@ -20,6 +20,7 @@
 
 #include <iostream>
 #include <vector>
+#include <queue>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/video/tracking.hpp>
@@ -31,7 +32,7 @@ int main()
 {
     //****************************** Record Settings ******************************//
     int DeviceNumber = 0;
-    int RecDuration = 15;
+    int RecDuration = 5;
     int FrameRate = 30;
     int FrameSamples = FrameRate * RecDuration;
     //***************************** Hardware Settings *****************************//
@@ -45,7 +46,7 @@ int main()
     }
     //****************************** Initializations ******************************//
     Mat VideoFrame;                                         // Each Video Frame
-    vector<Mat> FrameBufferVec;                             // Buffer Storage
+    queue <Mat> FrameBufferVec;                             // Buffer Storage
     cout << endl;
     cout << endl;
     cout << "************************** VIDEO CAPTURE ***************************" << endl;
@@ -78,7 +79,7 @@ int main()
     while(1){
         VideoStreamCap >> VideoFrame;                                                   // Capture Video Frame
 
-        if(!(VideoFrame.empty())){ FrameBufferVec.push_back(VideoFrame.clone()); }      // Store in buffer
+        if(!(VideoFrame.empty())){ FrameBufferVec.push(VideoFrame.clone()); }      // Store in buffer
         waitKey(1);
         if (RecFrameCount == FrameSamples - 1){
             break;
@@ -95,10 +96,11 @@ int main()
     //****************************** Video Playback ******************************//
     for (int index = 0; index < FrameSamples; index++){
 
-        VideoFrame = FrameBufferVec.at(index);
+        VideoFrame = FrameBufferVec.front();    // Return the very first element
+        FrameBufferVec.pop();                   // Delete the very first element
         if(!(VideoFrame.empty())){
             cout << "Reading From Buffer, Current Frame: " << index << endl;
-            imshow("Video Capture", FrameBufferVec.at(index));                          // Read buffer and display
+            imshow("Video Capture", VideoFrame);                          // Read buffer and display
         } 
         waitKey(33);
     }
@@ -106,6 +108,5 @@ int main()
     cout << "Playback Finished" << endl;
     cout << "Press ENTER to Exit Program" << endl;
     getchar();
-    FrameBufferVec.clear();
     return 1;
 }
