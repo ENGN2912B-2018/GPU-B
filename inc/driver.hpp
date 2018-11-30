@@ -82,6 +82,27 @@ public:
 	virtual bool start() = 0;
 };
 
+/**
+ * The FileReader reads images from files. It is used for testing.
+ */
+class FileReader: public FrameBuffer
+{
+private:
+	//! Path to the image file
+	std::string fileName;
+public:
+	/**
+	 * @param fileName Path to the image file
+	 */
+	FileReader(std::string fileName):
+		fileName(fileName) {}
+
+	void setFileName(std::string fileName) {this->fileName = fileName;}
+
+	/* overloads */
+	Frame& nextFrame() {return Frame(cv::imread(fileName));}
+	bool stop() {return true;}
+	bool start() {return true;}
 };
 
 } // gpub
