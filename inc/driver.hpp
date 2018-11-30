@@ -19,24 +19,39 @@ class Frame
 typedef std::chrono::time_point<std::chrono::system_clock> ts_t;
 private:
 	//! The image
-	cv::Mat img;
+	cv::Mat& img;
 	//! Timestamp of image capture
 	ts_t ts;
+	//! Signal if a frame is valid. Invalid frame may indicate an empty buffer
+	bool isValid;
 
 public:
 	/**
 	 * A frame is timestamped as now.
 	 * @prarm img The image matrix
 	 */
-	Frame(cv::Mat img):
-		img(img) {ts = std::chrono::system_clock::now();}
+	Frame(cv::Mat& img, bool isValid=true):
+		img(img), isValid(isValid) {ts = std::chrono::system_clock::now();}
 
 	/**
 	 * @param img The image matrix
 	 * @param ts Frame timestamp
 	 */
-	Frame(cv::Mat img, ts_t ts):
-		img(img), ts(ts) {}
+	Frame(cv::Mat& img, ts_t ts, bool isValid=true):
+		img(img), ts(ts), isValid(isValid) {}
+
+	/**
+	 *	Usage: if(frame), check if frame is valid
+	 */
+	bool operator bool() {return isValid;}
+
+	cv::Mat& getImg() const {return img;}
+	ts_t getTs() const {return ts;}
+	bool getIsValid() const {return isValid;}
+
+	void setImg(const cv::Mat& img) {this->img = img;}
+	void setTs(ts_t ts) {this->ts = ts;}
+	void setIsValid(bool isValid) {this->isValid = isValid;}
 };
 
 /**
@@ -48,9 +63,9 @@ class FrameBuffer
 public:
 	/**
 	 * Produce a new frame for the processing logic.
-	 * @return The next frame awaits processing
+	 * @return The reference to next frame awaits processing
 	 */
-	virtual Frame nextFrame() = 0;
+	virtual Frame& nextFrame() = 0;
 
 	/**
 	 * Called by the logic when the ball is found, the driver should prevent
