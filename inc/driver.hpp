@@ -25,60 +25,50 @@
 
 namespace gpub
 {
-	class Frame{
-		/*
-		 * This class was designed to use OpenCL for video capture
-		 * openCV can be installed by $ brew install opencv
-		*/
-		public:
-			Frame(); 											// Constructor
-			~Frame(); 											// Destructor
+	class CameraDriver: public FrameBuffer{
+        /* This class was to get frames from actual camera,
+         * and construce the fram object using class Frame.
+         * The constructed frame should be stored into a queue
+        */
+        public:
+            CameraDriver();                         // Constructor
+            ~CameraDriver();                        // Destructor
 
-			void setDeviceNumber(int input);					// Set functions
+			void setDeviceNumber(int input);		// Set functions
 			void setFrameFate(int input); 
 			void setOnScreenRec(bool input); 
 
-			unsigned int getDeviceNumber(); 					// Get functions
+            void setBufferSize(unsigned int inputSize)
+
+			unsigned int getDeviceNumber(); 		// Get functions
 			unsigned int getFrameRate(); 
 			bool getDeviceStatus(); 
 			bool getOnScreenStatus(); 
 
+            void ini();                             // Initialize Video Stream
 
-			void video_ini();									// Record functions
-			void video_start(FrameBuffer& BufferObj)
-			void video_stop();
+            virtual Frame nextFrame();	            // I/O: Get the next frame from buffer
+            virtual bool stop();                    // I/O: Stop Video Capturing (Stop fillin buffer)
+            virtual bool start();                   // I/O: Start Video Capturing (Start fillin buffer)
 
-		private:
+        private:
+            unsigned int BufferSize = 150;
+
+            Frame MatObj;                           // Constructed Frame Object
+            Frame OutputFrameObj;                   // Constructed Void Frame Object
+            cv::VideoCapture VideoStreamCap;		// Camera Stream object
+            cv::Mat EmptyFrame;                     // Empty Frame
+            cv::Mat VideoFrame;                     // Frame from camera
+            std::quene<Frame> FIFOBuffer;           // Quene of frame object
+
 			bool DeviceEnable = false;
-			bool OnScreenRec = false;							// Show video while recording. Suggest set to false to save computing pwr
+			bool OnScreenRec = false;				// Show video while recording. Suggest set to false to save computing pwr
 			bool CaptureStart = false;
 
-			unsigned int DeviceNumber = 0;						// Device Number. Select when there are mutilpe cameras in system
-			unsigned int FrameRate = 30; 						// Frame Rate in Frame/Second
-
-			cv::Mat VideoFrame;									// For storing single frame
-			cv::VideoCapture VideoStreamCap;					// Camera Stream object
-	};
-
-	class FrameBuffer{
-		public:
-			FrameBuffer(); 										// Constructor
-			~FrameBuffer();  									// Destructor
-
-			void setSize(unsigned int inputSize); 
-			void push(const cv::Mat& inputFrame); 				// Store Function, pass by reference
-			
-			cv::Mat get();										// Get Frame Function
-			cv::Mat peek();
-
-		private:
-			unsigned int BufferSize = 150;
-			cd::Mat EmptyFrame;
-			std::queue <cd::Mat> FrameBuffer;
+			unsigned int DeviceNumber = 0;			// Device Number. Select when there are mutilpe cameras in system
+			unsigned int FrameRate = 30; 			// Frame Rate in Frame/Second
 
 	};
-
 } // gpub
-
 
 #endif // _DRIVER_HPP

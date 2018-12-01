@@ -2,148 +2,100 @@
  *File Name    : driver.cpp
  * Author      : Ziwei Chen
  * Date        : Nov-29-2018
- * Modified    : N/A
- * Modify Date : N/A
+ * Modified    : Ziwei Chen
+ * Modify Date : Nov-30-2018
  * 
  * Description : This class was to buffer the video stream from external device.
  * 
- * OpenCV Installation: 
- * https://medium.com/@jaskaranvirdi/setting-up-opencv-and-c-development-environment-in-xcode-b6027728003
- * Compile Using (g++):
- * $ g++ $(pkg-config --cflags --libs opencv) -std=c++11  OpenCVTest.cpp -o VideoCapTest
- * 
  * ******************************************************************************************
 */
-
 #include "driver.hpp"
 
-/********************************** Video Capture Class *********************************/
-Frame::Frame(){}
+CameraDriver::CameraDriver(){}
 
-Frame::~Frame(){}
+CameraDriver::~CameraDriver(){}
 
 // Set functions
-void Frame::setDeviceNumber(int input)
-{
+void CameraDriver::setDeviceNumber(int input) {
 	DeviceNumber = input;
 }
 
-void Frame::setFrameFate(int input) 
-{
+void CameraDriver::setFrameFate(int input) {
 	FrameRate = input;
 }
 
-void Frame::setOnScreenRec(bool input) 
-{
+void CameraDriver::setOnScreenRec(bool input) {
 	OnScreenRec = input;
 }
 
+void CameraDriver::setBufferSize(unsigned int inputSize) {              // Set buffer size
+    BufferSize = inputSize;
+}
+
+
 // Get functions
-unsigned int Frame::getDeviceNumber() 
-{
+unsigned int CameraDriver::getDeviceNumber() {
 	return DeviceNumber;
 }
 
-unsigned int Frame::getFrameRate() 
-{
+unsigned int CameraDriver::getFrameRate() {
 	return FrameRate;
 }
 
-bool Frame::getDeviceStatus() 
-{
+bool CameraDriver::getDeviceStatus() {
 	return DeviceEnable;
 } 
 
-bool Frame::getOnScreenStatus() 
-{
+bool CameraDriver::getOnScreenStatus() {
 	return OnScreenRec;
 }
 
 // Record functions
-void Frame::video_ini()
-{ 																		// Initialization for video
+void CameraDriver::ini() { 												// Initialization for video
 	VideoStreamCap.open(DeviceNumber);									// Connect to camera
 	VideoStreamCap.set(CV_CAP_PROP_XI_FRAMERATE, FrameRate);
-	if(!VideoStreamCap.isOpened())
-	{
+	if(!VideoStreamCap.isOpened()){
 		DeviceEnable = true;
 	}
 }
 
-
-void Frame::video_start(FrameBuffer& BufferObj)
-{ 																		// Record Video （Option: Offscreen or Onscreed）
-    CaptureStart = true;
-    while(CaptureStart == true)
-    {
-	    if (OnScreenRec == true)
-	    {
-		    VideoStreamCap >> VideoFrame; 						        // Capture Video Frame
-		    BufferObj.push(VideoFrame);                                 // Store in buffer
+virtual bool CameraDriver::start() { 		                    		// Record Video （Option: Offscreen or Onscreed）
+    CaptureStart = true;                                                // Set Capture to start
+    while(CaptureStart == true){
+        VideoStreamCap >> VideoFrame; 						            // Capture Video Frame
+	    if (OnScreenRec == true) {
+            MatObj = Frame(VideoFrame.clone()):                         // Construct Video Frame here
+		    if (FIFOBuffer.size() < BufferSize) {
+                FIFOBuffer.push(MatObj);                                // Store in buffer
+            } else {
+                FIFOBuffer.pop();
+                FIFOBuffer.push(MatObj);
+            }
 		    imshow(VideoFrame);
-	    }
-	    else
-	    {
-		    VideoStreamCap >> VideoFrame;                               // Capture Video Frame
-		    BufferObj.push(VideoFrame);                                 // Store in buffer
+	    } else {
+            MatObj = Frame(VideoFrame.clone()):                         // Construct Video Frame here
+		    if (FIFOBuffer.size() < BufferSize) {
+                FIFOBuffer.push(MatObj);                                // Store in buffer
+            } else {
+                FIFOBuffer.pop();
+                FIFOBuffer.push(MatObj);
+            }
 	    }
     }
+    return 0;
 }
 
-void Frame::video_stop()
-{
+virtual bool CameraDriver::stop() {
     CaptureStart = false;
+    return 0;
 }
 
-/********************************** Frame Buffer Class **********************************/
-
-FrameBuffer::FrameBuffer(){}
-
-FrameBuffer::~FrameBuffer(){}
-
-void FrameBuffer::setSize(unsigned int inputSize)                       // Set buffer size
-{
-    BufferSize = inputSize;
-}
-
-void FrameBuffer::push(const cv::Mat& inputFrame)                       // Push new frame into buffer
-{
-    if (FrameBuffer.size() < BufferSize)
-    {
-        FrameBuffer.push(inputFrame.clone());
-    }
-    else
-    {
+virtual Frame nextFrame() {                                              // Method for get frame
+    if (FIFOBuffer.size() > 0) {
+        OutputFrameObj = FrameBuffer.front();
         FrameBuffer.pop();
-        FrameBuffer.push(inputFrame.clone());
+    } else {
+        OutputFrameObj = Frame(EmptyFrame,false);                       // Create and output dummy frame
     }
-
-}
-
-cv::Mat FrameBuffer::get(){
-    if (FrameBuffer.size() > 0)
-    {
-        cv::Mat TempFrame = FrameBuffer.front();                        // Store the first frame
-        FrameBuffer.pop();                                              // Deleate the first frame
-
-        return TempFrame;                                               // Return the first frame
-    }
-    else
-    {
-        return EmptyFrame;
-    }
-}
-
-cv::Mat FrameBuffer::peek(){
-    if (FrameBuffer.size() > 0)
-    {
-        cv::Mat TempFrame = FrameBuffer.front();                        // Store the first frame
-        FrameBuffer.pop();                                              // Deleate the first frame
-
-        return TempFrame;                                               // Return the first frame
-    }
-    else
-    {
-        return EmptyFrame;
-    }
+    return OutputFrameObj;
 }
