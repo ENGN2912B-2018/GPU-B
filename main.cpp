@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "camera.h"
 
 
 #include <QtWidgets>
