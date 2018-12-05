@@ -1,13 +1,16 @@
 #include "mainwindow.h"
-#include <QApplication>
+
+
+#include <QtWidgets>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    QApplication app(argc, argv);
 
-    return a.exec();
+    Camera camera;
+    camera.show();
+
+    return app.exec();
 }
 
 //right before commit swap carriage in Git: look up in google
