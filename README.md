@@ -1,9 +1,9 @@
 # GPU-B
 
-The ball tracker made by GPU-B group with ❤
+This ball tracker is made by GPU-B group with ❤
 
 ## Introduction
-Practicing pitching baseballs can be hard. It is harder to get immediate feedback. The ball tracker is here to help.
+Practicing pitching baseballs can be hard because getting immediate feedback is hard. Our ball tracker is here to help!
 
 Unlike any commercially available alternatives, which are extremely expensive, hard to set up, and require several cameras, the ball tracker produces accurate estimates of the pitch velocity and the strike zone using only a single camera and a laptop.
 
