@@ -5,9 +5,9 @@ This ball tracker is made by the GPU-B group with ❤
 ## Introduction
 Practicing pitching baseballs can be hard because getting immediate feedback is hard. Our ball tracker is here to help!
 
-Commercially available alternatives are are extremely expensive, hard to set up, and require several cameras. Our ball tracker produces accurate estimates of the pitch velocity and strike zone using only a single camera and a laptop.
+Commercially available alternatives are extremely expensive, hard to set up, and require several cameras. Our ball tracker produces accurate estimates of the pitch velocity and strike zone using only a single camera and a laptop.
 
-It is built for sports lovers and recreational players, but even professionals can use it. With a laptop and a decent camera, the ball tracker can give you a quality training session anytime, anywhere.
+This program was designed With sports lovers and recreational players in mind, but even professionals can use it. With just a laptop and a decent camera, our ball tracker can give you a quality training session anytime, anywhere.
 
 ## Technical Highlights
 **It's accurate!** The ball tracker adopts multiple state-of-the-art tracking algorithms and fuses the measurements with a [Baysian probabilistic model](https://en.wikipedia.org/wiki/Bayesian_probability). It can deliver incredible tracking accuracy even with a low-cost camera.
