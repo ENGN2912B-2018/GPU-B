@@ -117,7 +117,7 @@ public:
 	 * @param fileName Path to the image file
 	 */
 	FileReader(std::string fileName):
-		fileName(fileName) {}
+	fileName(fileName) {}
 
 	void setFileName(std::string fileName) {this->fileName = fileName;}
 
@@ -128,47 +128,47 @@ public:
 };
   
 class CameraDriver: public FrameBuffer{
-        /* This class was to get frames from actual camera,
-         * and construce the fram object using class Frame.
-         * The constructed frame should be stored into a queue
-        */
-        public:
-            CameraDriver();                         // Constructor
-            ~CameraDriver();                        // Destructor
+    /* This class was to get frames from actual camera,
+     * and construce the fram object using class Frame.
+     * The constructed frame should be stored into a queue
+     */
+     public:
+        CameraDriver();                         // Constructor
+        ~CameraDriver();                        // Destructor
 
-			void setDeviceNumber(int input);		// Set functions
-			void setFrameFate(int input); 
-			void setOnScreenRec(bool input); 
+		void setDeviceNumber(int input);		// Set functions
+		void setFrameFate(int input); 
+		void setOnScreenRec(bool input); 
 
-            void setBufferSize(unsigned int inputSize)
+        void setBufferSize(unsigned int inputSize)
 
-			unsigned int getDeviceNumber(); 		// Get functions
-			unsigned int getFrameRate(); 
-			bool getDeviceStatus(); 
-			bool getOnScreenStatus(); 
+		unsigned int getDeviceNumber(); 		// Get functions
+		unsigned int getFrameRate(); 
+		bool getDeviceStatus(); 
+		bool getOnScreenStatus(); 
 
-            void ini();                             // Initialize Video Stream
+        void ini();                             // Initialize Video Stream
 
-            virtual Frame nextFrame();	            // I/O: Get the next frame from buffer
-            virtual bool stop();                    // I/O: Stop Video Capturing (Stop fillin buffer)
-            virtual bool start();                   // I/O: Start Video Capturing (Start fillin buffer)
+        virtual Frame nextFrame();	            // I/O: Get the next frame from buffer
+        virtual bool stop();                    // I/O: Stop Video Capturing (Stop fillin buffer)
+        virtual bool start();                   // I/O: Start Video Capturing (Start fillin buffer)
 
-        private:
-            unsigned int BufferSize = 150;
+    private:
+	    unsigned int BufferSize = 150;
 
-            Frame MatObj;                           // Constructed Frame Object
-            Frame OutputFrameObj;                   // Constructed Void Frame Object
-            cv::VideoCapture VideoStreamCap;		// Camera Stream object
-            cv::Mat EmptyFrame;                     // Empty Frame
-            cv::Mat VideoFrame;                     // Frame from camera
-            std::quene<Frame> FIFOBuffer;           // Quene of frame object
+        Frame MatObj;                           // Constructed Frame Object
+        Frame OutputFrameObj;                   // Constructed Void Frame Object
+        cv::VideoCapture VideoStreamCap;		// Camera Stream object
+        cv::Mat EmptyFrame;                     // Empty Frame
+        cv::Mat VideoFrame;                     // Frame from camera
+        std::quene<Frame> FIFOBuffer;           // Quene of frame object
 
-			bool DeviceEnable = false;
-			bool OnScreenRec = false;				// Show video while recording. Suggest set to false to save computing pwr
-			bool CaptureStart = false;
+		bool DeviceEnable = false;
+		bool OnScreenRec = false;				// Show video while recording. Suggest set to false to save computing pwr
+		bool CaptureStart = false;
 
-			unsigned int DeviceNumber = 0;			// Device Number. Select when there are mutilpe cameras in system
-			unsigned int FrameRate = 30; 			// Frame Rate in Frame/Second
+		unsigned int DeviceNumber = 0;			// Device Number. Select when there are mutilpe cameras in system
+		unsigned int FrameRate = 30; 			// Frame Rate in Frame/Second
 
 	};
 } // gpub
