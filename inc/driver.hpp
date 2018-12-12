@@ -136,39 +136,39 @@ class CameraDriver: public FrameBuffer{
         CameraDriver();                         // Constructor
         ~CameraDriver();                        // Destructor
 
-		void setDeviceNumber(int input);		// Set functions
-		void setFrameFate(int input); 
-		void setOnScreenRec(bool input); 
+	void setDeviceNumber(int input);	// Set functions
+	void setFrameFate(int input); 
+	void setOnScreenRec(bool input); 
 
         void setBufferSize(unsigned int inputSize)
 
-		unsigned int getDeviceNumber(); 		// Get functions
-		unsigned int getFrameRate(); 
-		bool getDeviceStatus(); 
-		bool getOnScreenStatus(); 
+	unsigned int getDeviceNumber(); 	// Get functions
+	unsigned int getFrameRate(); 
+	bool getDeviceStatus(); 
+	bool getOnScreenStatus(); 
 
         void ini();                             // Initialize Video Stream
 
-        virtual Frame nextFrame();	            // I/O: Get the next frame from buffer
+        virtual Frame nextFrame();	           // I/O: Get the next frame from buffer
         virtual bool stop();                    // I/O: Stop Video Capturing (Stop fillin buffer)
         virtual bool start();                   // I/O: Start Video Capturing (Start fillin buffer)
 
     private:
-	    unsigned int BufferSize = 150;
+	unsigned int BufferSize = 150;
 
         Frame MatObj;                           // Constructed Frame Object
         Frame OutputFrameObj;                   // Constructed Void Frame Object
-        cv::VideoCapture VideoStreamCap;		// Camera Stream object
+        cv::VideoCapture VideoStreamCap;	// Camera Stream object
         cv::Mat EmptyFrame;                     // Empty Frame
         cv::Mat VideoFrame;                     // Frame from camera
         std::quene<Frame> FIFOBuffer;           // Quene of frame object
 
-		bool DeviceEnable = false;
-		bool OnScreenRec = false;				// Show video while recording. Suggest set to false to save computing pwr
-		bool CaptureStart = false;
+	bool DeviceEnable = false;
+	bool OnScreenRec = false;		// Show video while recording. Suggest set to false to save computing pwr
+	bool CaptureStart = false;
 
-		unsigned int DeviceNumber = 0;			// Device Number. Select when there are mutilpe cameras in system
-		unsigned int FrameRate = 30; 			// Frame Rate in Frame/Second
+	unsigned int DeviceNumber = 0;		// Device Number. Select when there are mutilpe cameras in system
+	unsigned int FrameRate = 30; 		// Frame Rate in Frame/Second
 
 	};
 } // gpub
