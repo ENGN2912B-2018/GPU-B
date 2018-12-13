@@ -75,6 +75,9 @@ public:
 	void setTs(ts_t ts) {this->ts = ts;}
 	void setIsValid(bool isValid) {this->isValid = isValid;}
 };
+/*
+ *  ******************************************************************************************
+*/
 
 /**
  * The class FrameBuffer is a virtual class of a camera driver. All driver
@@ -87,22 +90,32 @@ public:
 	 * Produce a new frame for the processing logic.
 	 * @return The reference to next frame awaits processing
 	 */
-	virtual Frame& nextFrame() = 0;
+	virtual Frame& nextFrame();
 
 	/**
 	 * Called by the logic when the ball is found, the driver should prevent
 	 * the buffer from overwriting.
 	 * @return True if success else False
 	 */
-	virtual bool stop() = 0;
+	virtual bool stop();
 
 	/**
 	 * Called by the logic when the processing is finished, the driver should
 	 * flush the buffer and start recording.
 	 * @return True if success else False
 	 */
-	virtual bool start() = 0;
+	virtual bool start();
+
+private:
+	std::quene<Frame> FIFOBuffer;           	// Quene of frame object
+	cv::Mat EmptyFrame;                     	// Empty Frame
+	Frame OutputFrameObj;                   	// Constructed Frame Object that ready for output/store in buffer
+	bool bufferWrite = true;					// Set buffer write premission, should not write buffer when false
 };
+
+/*
+ *  ******************************************************************************************
+*/
 
 /**
  * The FileReader reads images from files. It is used for testing.
@@ -126,49 +139,61 @@ public:
 	bool stop() {return true;}
 	bool start() {return true;}
 };
-  
+
+/*
+ *  ******************************************************************************************
+*/
+
+/* 
+ * This class was to get frames from actual camera, and construce the fram object using class Frame.
+ * The constructed frame should be stored into a queue
+*/
+
 class CameraDriver: public FrameBuffer{
-    /* This class was to get frames from actual camera,
-     * and construce the fram object using class Frame.
-     * The constructed frame should be stored into a queue
-     */
+
      public:
-        CameraDriver();                         // Constructor
-        ~CameraDriver();                        // Destructor
-
-	void setDeviceNumber(int input);	// Set functions
-	void setFrameFate(int input); 
-	void setOnScreenRec(bool input); 
-
-        void setBufferSize(unsigned int inputSize)
-
-	unsigned int getDeviceNumber(); 	// Get functions
-	unsigned int getFrameRate(); 
-	bool getDeviceStatus(); 
-	bool getOnScreenStatus(); 
-
-        void ini();                             // Initialize Video Stream
-
-        virtual Frame nextFrame();	           // I/O: Get the next frame from buffer
-        virtual bool stop();                    // I/O: Stop Video Capturing (Stop fillin buffer)
-        virtual bool start();                   // I/O: Start Video Capturing (Start fillin buffer)
-
+	 	/**
+		 * Constructor and destructor
+	 	*/
+    	CameraDriver();
+    	~CameraDriver();
+	 	/**
+		 * Camera set functions.
+	 	*/
+		void setDeviceNumber(int input);			// Default to 0. Change this value when other cameras exist in system
+		void setFrameFate(int input); 				// Default to 30fps. May has no effect depending on camera module
+		void setOnScreenRec(bool input); 			// Default to false. 
+    	void setBufferSize(unsigned int inputSize);	// Default to 150 frames. CameraDriver stops writting to buffer when size exceed
+	 	/**
+		 * Camera get functions.
+	 	*/
+		unsigned int getDeviceNumber(); 			// Get hardware device number
+		unsigned int getFrameRate(); 				// Get target frame rate in setting
+		bool getDeviceStatus(); 					// Get target camera status, if it is initialized
+		bool getOnScreenStatus(); 					// Get if on screen recording was enabled
+	 	/**
+		 * Camera operation functions.
+	 	*/
+    	virtual bool ini();							// Initialize Video Stream and camera, ready to record
+		virtual bool start();						// Start recording and feed into buffer
+		virtual bool stop();						// Stop recording
     private:
-	unsigned int BufferSize = 150;
-
-        Frame MatObj;                           // Constructed Frame Object
-        Frame OutputFrameObj;                   // Constructed Void Frame Object
-        cv::VideoCapture VideoStreamCap;	// Camera Stream object
-        cv::Mat EmptyFrame;                     // Empty Frame
-        cv::Mat VideoFrame;                     // Frame from camera
-        std::quene<Frame> FIFOBuffer;           // Quene of frame object
-
-	bool DeviceEnable = false;
-	bool OnScreenRec = false;		// Show video while recording. Suggest set to false to save computing pwr
-	bool CaptureStart = false;
-
-	unsigned int DeviceNumber = 0;		// Device Number. Select when there are mutilpe cameras in system
-	unsigned int FrameRate = 30; 		// Frame Rate in Frame/Second
+		/**
+		 * Camera setting parameters
+	 	*/
+	 	unsigned int DeviceNumber = 0;				// Device Number. Select when there are mutilpe cameras in system
+		unsigned int FrameRate = 30; 				// Frame Rate in Frame/Second
+		unsigned int BufferSize = 150;
+		cv::VideoCapture VideoStreamCap;			// Camera Stream object
+		cv::Mat VideoFrame;                     	// Simple single video frame matrix from camera
+    	Frame MatObj;                           	// Constructed Frame Object directly from camera and generated by class Frame
+    	
+		/**
+		 * Camera status indicators
+	 	*/
+		bool DeviceEnable = false;
+		bool OnScreenRec = false;
+		bool CaptureStart = false;					// Indicator for if the camera is currently working
 
 	};
 } // gpub
