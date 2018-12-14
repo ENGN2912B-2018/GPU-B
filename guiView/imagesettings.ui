@@ -38,7 +38,11 @@
        </widget>
       </item>
       <item row="3" column="0" colspan="2">
-       <widget class="QComboBox" name="imageCodecBox"/>
+       <widget class="QComboBox" name="imageCodecBox">
+        <property name="currentIndex">
+         <number>-1</number>
+        </property>
+       </widget>
       </item>
       <item row="4" column="0">
        <widget class="QLabel" name="label_7">
