@@ -135,6 +135,9 @@
         </widget>
        </widget>
        <widget class="QTabWidget" name="captureWidget">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="geometry">
          <rect>
           <x>810</x>
@@ -143,8 +146,14 @@
           <height>306</height>
          </rect>
         </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="tabPosition">
+         <enum>QTabWidget::North</enum>
+        </property>
         <property name="currentIndex">
-         <number>1</number>
+         <number>0</number>
         </property>
         <widget class="QWidget" name="tab_2">
          <attribute name="title">
@@ -271,6 +280,9 @@
          <string>Focus</string>
         </property>
        </widget>
+       <zorder>stackedWidget</zorder>
+       <zorder>lockButton</zorder>
+       <zorder>captureWidget</zorder>
       </widget>
       <widget class="QWidget" name="tab_4">
        <attribute name="title">
