@@ -52,6 +52,23 @@ public:
 
 class HSVThreshold: public BallTracker
 {
+private:
+	cv::Scalar upper = cv::Scalar(29.0, 86.0, 6.0);
+	cv::Scalar lower = cv::Scalar(64.0, 255.0, 255.0);
+	int erosionSize = 2;
+	double areaThreshold = 50.0;
+
+public:
+	State analyse(Frame);
+
+	void setUpper(double h, double s, double v)
+	{
+		upper = cv::Scalar(h, s, v);
+	}
+	void setLower(double h, double s, double v)
+	{
+		lower = cv::Scalar(h, s, v);
+	}
 };
 
 } // gpub
