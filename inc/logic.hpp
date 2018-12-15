@@ -2,6 +2,7 @@
 #define _LOGIC_HPP
 
 #include <vector>
+#include <opencv2/opencv.hpp>
 #include "view.hpp"
 #include "driver.hpp"
 
@@ -10,6 +11,25 @@ namespace gpub
 
 class State
 {
+private:
+	bool hasBall = true;
+	double speed = -1.0;
+	int x = -1;
+	int y = -1;
+
+public:
+	State();
+	State(bool hasBall): hasBall(hasBall) {}
+	State(int x, int y): x(x), y(y) {}
+	State(double speed, int x, int y): speed(speed), x(x), y(y) {}
+
+	operator bool() {return hasBall;}
+
+	int getSpeed() const {return speed;}
+	int getX() const {return x;}
+	int getY() const {return y;}
+
+	void setSpeed(double speed) {(*this).speed = speed;}
 };
 
 class BallTracker
