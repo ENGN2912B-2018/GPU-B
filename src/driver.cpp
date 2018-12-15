@@ -15,46 +15,46 @@
  *  ********************************************* CameraDriver: FrameBuffer Class Methods *********************************************
 */
 
-CameraDriver::CameraDriver(){}
+gpub::CameraDriver::CameraDriver(){}
 
-CameraDriver::~CameraDriver(){}
+gpub::CameraDriver::~CameraDriver(){}
 
 // Set functions
-void CameraDriver::setDeviceNumber(int input) {
+void gpub::CameraDriver::setDeviceNumber(int input) {
 	DeviceNumber = input;
 }
 
-void CameraDriver::setFrameFate(int input) {
+void gpub::CameraDriver::setFrameFate(int input) {
 	FrameRate = input;
 }
 
-void CameraDriver::setOnScreenRec(bool input) {
+void gpub::CameraDriver::setOnScreenRec(bool input) {
 	OnScreenRec = input;
 }
 
-void CameraDriver::setBufferSize(unsigned int inputSize) {              // Set buffer size
+void gpub::CameraDriver::setBufferSize(unsigned int inputSize) {              // Set buffer size
     BufferSize = inputSize;
 }
 
 // Get functions
-unsigned int CameraDriver::getDeviceNumber() {
+unsigned int gpub::CameraDriver::getDeviceNumber() {
 	return DeviceNumber;
 }
 
-unsigned int CameraDriver::getFrameRate() {
+unsigned int gpub::CameraDriver::getFrameRate() {
 	return FrameRate;
 }
 
-bool CameraDriver::getDeviceStatus() {
+bool gpub::CameraDriver::getDeviceStatus() {
 	return DeviceEnable;
 }
 
-bool CameraDriver::getOnScreenStatus() {
+bool gpub::CameraDriver::getOnScreenStatus() {
 	return OnScreenRec;
 }
 
 // Record functions
-virtual bool CameraDriver::ini() { 										// Initialization for video
+bool gpub::CameraDriver::ini() { 										// Initialization for video
 	VideoStreamCap.open(DeviceNumber);									// Connect to camera
 	VideoStreamCap.set(CV_CAP_PROP_XI_FRAMERATE, FrameRate);
 	if(!VideoStreamCap.isOpened()){
@@ -63,7 +63,7 @@ virtual bool CameraDriver::ini() { 										// Initialization for video
     return 0;
 }
 
-virtual bool CameraDriver::start() { 		                    		// Record Video （Option: Offscreen or Onscreed）
+bool gpub::CameraDriver::start() { 		                    		    // Record Video （Option: Offscreen or Onscreed）
     CaptureStart = true;                                                // Set Capture to start
     while((CaptureStart == true)){
         VideoStreamCap >> VideoFrame; 						            // Capture Video Frame
@@ -76,7 +76,7 @@ virtual bool CameraDriver::start() { 		                    		// Record Video （
                     FIFOBuffer.pop();
                     FIFOBuffer.push(MatObj);
                 }
-		        imshow(VideoFrame);
+		        //imshow(VideoFrame);
 	        } else {
                 MatObj = Frame(VideoFrame.clone());                     // Construct Video Frame here
 		        if (FIFOBuffer.size() < BufferSize) {
@@ -91,15 +91,15 @@ virtual bool CameraDriver::start() { 		                    		// Record Video （
     return 0;
 }
 
-virtual bool CameraDriver::stop() {
+bool gpub::CameraDriver::stop() {
     CaptureStart = false;
     return 0;
 }
 
 /*
- *  ********************************************* FrameBuffer Class Methods *********************************************
+ *  Overloads
 */
-virtual FrameBuffer nextFrame() {                                       // Method for get frame
+gpub::Frame &gpub::CameraDriver::nextFrame() {                                       // Method for get frame
     if (FIFOBuffer.size() > 0) {
         OutputFrameObj = FIFOBuffer.front();
         FIFOBuffer.pop();
@@ -109,12 +109,12 @@ virtual FrameBuffer nextFrame() {                                       // Metho
     return OutputFrameObj;
 }
 
-virtual bool stop(){
+bool gpub::CameraDriver::stop() {
     bufferWrite = false;
     return true;
 }
 
-virtual bool start(){
+bool gpub::CameraDriver::start() {
     bufferWrite = true;
     return true;
 }
