@@ -3,7 +3,6 @@
 
 #include <vector>
 #include <opencv2/opencv.hpp>
-#include "view.hpp"
 #include "driver.hpp"
 
 namespace gpub
@@ -41,12 +40,11 @@ public:
 class Fusor
 {
 private:
-	View view;
 	std::vector<BallTracker> trackers;
 	FrameBuffer frameBuffer;
 
 public:
-	void roll();
+	State roll();
 
 };
 
