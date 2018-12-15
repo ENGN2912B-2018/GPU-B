@@ -3,15 +3,12 @@
  * Author      : Ziwei Chen
  * Date        : Nov-27-2018
  * Modified    : Ziwei Chen
- * Modify Date : Nov-29-2017
+ * Modify Date : Dec-15-2017
  *
  * Description : This class was to buffer the video stream from external device.
  *
  * OpenCV Installation:
  * https://medium.com/@jaskaranvirdi/setting-up-opencv-and-c-development-environment-in-xcode-b6027728003
- * Compile Using (g++):
- * $ g++ $(pkg-config --cflags --libs opencv) -std=c++11  OpenCVTest.cpp -o VideoCapTest
- *
  * ******************************************************************************************
 */
 
