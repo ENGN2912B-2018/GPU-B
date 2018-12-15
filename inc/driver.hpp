@@ -179,8 +179,6 @@ class CameraDriver: public FrameBuffer{
 		 * Overload
 	 	*/
 		Frame& nextFrame();
-		bool stop();
-		bool start();
 		
     private:
 		/**
