@@ -10,7 +10,7 @@ namespace gpub
 class View
 {
 public:
-	void updateBallState(State state, cv::Mat img);
+        void updateBallState(State state, cv::Mat img);
 };
 
 } // gpub

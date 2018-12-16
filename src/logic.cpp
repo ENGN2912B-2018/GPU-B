@@ -1,7 +1,7 @@
 #include <vector>
 #include <exception>
 #include <opencv2/opencv.hpp>
-#include "logic.hpp"
+#include "../inc/logic.hpp"
 
 gpub::State gpub::HSVThreshold::analyse(gpub::Frame frame)
 {
