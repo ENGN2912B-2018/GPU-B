@@ -1,6 +1,7 @@
 #ifndef _VIEW_HPP
 #define _VIEW_HPP
 
+#include <opencv2/opencv.hpp>
 #include "logic.hpp"
 
 namespace gpub
@@ -9,7 +10,7 @@ namespace gpub
 class View
 {
 public:
-	void updateBallState(State);
+	void updateBallState(State state, cv::Mat img);
 };
 
 } // gpub
