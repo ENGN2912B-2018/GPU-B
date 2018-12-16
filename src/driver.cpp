@@ -53,7 +53,7 @@ bool gpub::CameraDriver::getOnScreenStatus() {
 }
 
 // Record functions
-bool gpub::CameraDriver::ini() { 										// Initialization for video
+bool gpub::CameraDriver::iniCap() {                                     // Initialization for video
 	VideoStreamCap.open(DeviceNumber);									// Connect to camera
 	VideoStreamCap.set(CV_CAP_PROP_XI_FRAMERATE, FrameRate);
 	if(!VideoStreamCap.isOpened()){
@@ -62,7 +62,7 @@ bool gpub::CameraDriver::ini() { 										// Initialization for video
     return 0;
 }
 
-bool gpub::CameraDriver::start() { 		                    		    // Record Video （Option: Offscreen or Onscreed）
+bool gpub::CameraDriver::startCap() {                                   // Record Video （Option: Offscreen or Onscreed）
     CaptureStart = true;                                                // Set Capture to start
     while((CaptureStart == true)){
         VideoStreamCap >> VideoFrame; 						            // Capture Video Frame
@@ -90,7 +90,7 @@ bool gpub::CameraDriver::start() { 		                    		    // Record Video �
     return 0;
 }
 
-bool gpub::CameraDriver::stop() {
+bool gpub::CameraDriver::stopCap() {
     CaptureStart = false;
     return 0;
 }

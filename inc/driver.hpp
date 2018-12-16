@@ -172,14 +172,15 @@ class CameraDriver: public FrameBuffer{
 	 	/**
 		 * Camera operation functions.
 	 	*/
-    	virtual bool ini();							// Initialize Video Stream and camera, ready to record
-		virtual bool start();						// Start recording and feed into buffer
-		virtual bool stop();						// Stop recording
+    	bool iniCap();									// Initialize Video Stream and camera, ready to record
+		bool startCap();								// Start recording and feed into buffer
+		bool stopCap();								// Stop recording
 	 	/**
 		 * Overload
 	 	*/
 		Frame& nextFrame();
-		
+		bool stop();
+		bool start();
     private:
 		/**
 		 * Camera setting parameters
