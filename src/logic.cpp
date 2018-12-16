@@ -1,4 +1,5 @@
 #include <vector>
+#include <exception>
 #include <opencv2/opencv.hpp>
 #include "logic.hpp"
 
@@ -8,6 +9,11 @@ gpub::State gpub::HSVThreshold::analyse(gpub::Frame frame)
 	cv::Mat bgr = frame.getImg();
  	cv::Mat hsv;
 	cv::Mat mask;
+
+	if (bgr.empty())
+	{
+		throw std::exception();
+	}
 
 	// create hsv ball mask
 	cv::cvtColor(bgr, hsv, cv::COLOR_BGR2HSV);
