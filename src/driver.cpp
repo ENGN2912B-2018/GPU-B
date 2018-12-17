@@ -31,7 +31,7 @@ void gpub::CameraDriver::setOnScreenRec(bool input) {
 	OnScreenRec = input;
 }
 
-void gpub::CameraDriver::setBufferSize(unsigned int inputSize) {              // Set buffer size
+void gpub::CameraDriver::setBufferSize(unsigned int inputSize) {        // Set buffer size
     BufferSize = inputSize;
 }
 
@@ -54,7 +54,7 @@ bool gpub::CameraDriver::getOnScreenStatus() {
 
 // Record functions
 bool gpub::CameraDriver::iniCap() {                                     // Initialization for video
-	VideoStreamCap.open(DeviceNumber);									// Connect to camera
+        VideoStreamCap.open(DeviceNumber);				// Connect to camera
 	VideoStreamCap.set(CV_CAP_PROP_XI_FRAMERATE, FrameRate);
 	if(!VideoStreamCap.isOpened()){
 		DeviceEnable = true;
@@ -65,7 +65,7 @@ bool gpub::CameraDriver::iniCap() {                                     // Initi
 bool gpub::CameraDriver::startCap() {                                   // Record Video （Option: Offscreen or Onscreed）
     CaptureStart = true;                                                // Set Capture to start
     while((CaptureStart == true)){
-        VideoStreamCap >> VideoFrame; 						            // Capture Video Frame
+        VideoStreamCap >> VideoFrame; 					// Capture Video Frame
         if (bufferWrite == true){                                       // When buffer was enabled
 	        if (OnScreenRec == true) {
                 MatObj = Frame(VideoFrame.clone());                     // Construct Video Frame here
@@ -98,7 +98,7 @@ bool gpub::CameraDriver::stopCap() {
 /*
  *  Overloads
 */
-gpub::Frame &gpub::CameraDriver::nextFrame() {                                       // Method for get frame
+gpub::Frame &gpub::CameraDriver::nextFrame() {                          // Method for get frame
     if (FIFOBuffer.size() > 0) {
         OutputFrameObj = FIFOBuffer.front();
         FIFOBuffer.pop();

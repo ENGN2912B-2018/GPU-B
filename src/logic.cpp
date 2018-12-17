@@ -1,3 +1,13 @@
+/*
+ *File Name    : logic.cpp
+ * Author      : Haoze Zhang
+ * Date        : Dec-01-2018
+ * Modified    : Haoze Zhang
+ * Modify Date : Dec-16-2018
+ *
+ * Description : This file is the methods for tracking logic
+ * ******************************************************************************************
+*/
 #include <vector>
 #include <exception>
 #include <opencv2/opencv.hpp>

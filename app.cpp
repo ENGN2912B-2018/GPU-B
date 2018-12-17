@@ -1,3 +1,13 @@
+/*
+ *File Name    : logic.cpp
+ * Author      : Haoze Zhang
+ * Date        : Dec-01-2018
+ * Modified    : Ziwei Chen
+ * Modify Date : Dec-16-2018
+ *
+ * Description : This file is the main function for this project
+ * ******************************************************************************************
+*/
 #include <iostream>
 #include <vector>
 #include <QtWidgets>
@@ -5,9 +15,6 @@
 #include "./inc/logic.hpp"
 #include "./inc/driver.hpp"
 #include "./inc/camera.h"
-//right before commit swap carriage in Git: look up in google
-// look for option for line ending
-// usability and user experience. Should we prompt the user otherwise?
 
 #define THREAD_NUM 4
 #define DEBUG

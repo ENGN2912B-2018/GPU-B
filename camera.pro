@@ -1,13 +1,14 @@
 TEMPLATE = app
 TARGET = camera
-
 QT += multimedia multimediawidgets
 
-# The following lines tells Qmake to use pkg-config for opencv
+# OpenCV and OpenMP support
 QT_CONFIG -= no-pkg-config
 CONFIG  += link_pkgconfig
 PKGCONFIG += opencv
+LIBS += -fopenmp
 
+# Config Path
 HEADERS = \
     ./inc/camera.h \
     ./inc/imagesettings.h \
@@ -36,4 +37,3 @@ target.path = $$[QT_INSTALL_EXAMPLES]/multimediawidgets/camera
 INSTALLS += target
 
 QT+=widgets
-include(../../multimedia/shared/shared.pri)

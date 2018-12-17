@@ -1,3 +1,13 @@
+/*
+ *File Name    : logic.hpp
+ * Author      : Haoze Zhang
+ * Date        : Dec-01-2018
+ * Modified    : Haoze Zhang
+ * Modify Date : Dec-16-2018
+ *
+ * Description : This file is the class for tracking logic
+ * ******************************************************************************************
+*/
 #ifndef _LOGIC_HPP
 #define _LOGIC_HPP
 
