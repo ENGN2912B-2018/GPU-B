@@ -14,8 +14,7 @@ HEADERS = \
     ./inc/imagesettings.h \
     ./inc/videosettings.h \
     ./inc/driver.hpp \
-    ./inc/logic.hpp \
-    ./inc/view.hpp
+    ./inc/logic.hpp
 
 SOURCES = \
     app.cpp \
@@ -23,8 +22,7 @@ SOURCES = \
     ./src/imagesettings.cpp \
     ./src/videosettings.cpp \
     ./src/driver.cpp \
-    ./src/logic.cpp \
-    ./src/view.cpp
+    ./src/logic.cpp
 
 FORMS += \
     ./ui/camera.ui \
