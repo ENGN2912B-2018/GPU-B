@@ -1,8 +1,86 @@
-# GPU-B
+# Ball Tracker - Group GPU-B
+### ENGN-2912B S01 Scientific Programming in C++
+### December 2018
+### Brown University
 
-This ball tracker is made by the GPU-B group with ❤
+## Team Members
+[Chen Ziwei](mailto:ziwei_chen1@brown.edu)
+[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu)
+[Haoze Zhang](mailto:haoze_zhang@brown.edu)
+
 
 ## Introduction
+### Overview
+```under construction```
+### Goals and Objectives
+The goal for this project is to...
+
+## Software Architecture Design
+### Required External Libraries
+OpenCV 3.4.4
+OpenMP 4.5
+
+### Functional Bolck Diagrams
+```under construction```
+### Data Flow Diagrams
+```under construction```
+### UML Diagrams
+```under construction```
+
+## Interface Descriptions
+### Graphical Interface
+```under construction```
+### Data Visualization
+```under construction```
+### Communications Protocols
+```under construction```
+### Threading and Concurrenty
+```under construction```
+### Exception Handling
+```under construction```
+
+## Testing and Evaluation
+### Test Enviroment (OS, Compioler, Library)
+```under construction```
+### Description of Function Testing to Date
+```under construction```
+### Instructions for Compiling and Running
+```under construction```
+
+## Conclusions
+### Major Accoumplishments
+```under construction```
+### Results of Development Effort
+```under construction```
+### Were you successful in meeting all goals and objectives?  What didn't work?  What would take more time?
+```under construction```
+
+## Future Work
+### Potential future software expansions and software features
+```under construction```
+
+## Author Contributions
+### Ziwei Chen
+He was responsable for hardware camera setup, and video stream buffering.
+### Jocelyn Cheng
+She was responsable for graphical user interface development and design.
+### Haoze Zhang
+He was responsable for tracking algorithm, and system interfacing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Original Content
+
 Practicing pitching baseballs can be hard because getting immediate feedback is hard. Our ball tracker is here to help!
 
 Commercially available alternatives are extremely expensive, hard to set up, and require several cameras. Our ball tracker produces accurate estimates of the pitch velocity and strike zone using only a single camera and a laptop.
@@ -22,11 +100,4 @@ This program was designed With sports lovers and recreational players in mind, b
 ## Usage
 ```under construction```
 
-## Contact
-For commercial licensing or investment (or realistically bug reports), please contact
 
-[Chen Ziwei](mailto:ziwei_chen1@brown.edu): Product owner, SCRUM master
-
-[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu): Senior director of UX and screen design
-
-[Haoze Zhang](mailto:haoze_zhang@brown.edu): Senior director of software engineering
