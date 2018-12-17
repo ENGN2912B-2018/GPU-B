@@ -10,30 +10,22 @@
 */
 #include <iostream>
 #include <vector>
+#include <thread>
 #include <QtWidgets>
 #include "./inc/logic.hpp"
 #include "./inc/driver.hpp"
 #include "./inc/camera.h"
 
 #define THREAD_NUM 4
-#define DEBUG
+// #define DEBUG
 
 /**
- * Main program entry
+ * The tracking algorithms loop
  */
-int main(int argc, char *argv[])
+void track(Camera view, gpub::HSVThreshold& tracker,
+           gpub::FrameBuffer& fb, bool& killSwitch)
 {
-    QApplication app(argc, argv);
-
-    Camera camera;
-    camera.show();
-    std::cout << "This is the ball tracker" << std::endl;
-
-    gpub::HSVThreshold tracker;
-    gpub::FrameBuffer fb = gpub::CameraDriver();
-    gpub::View view;
-
-    while (1)
+    while (killSwitch)
     {
         std::vector<gpub::Frame> fv(THREAD_NUM);
         std::vector<gpub::State> sv(THREAD_NUM);
@@ -67,7 +59,10 @@ int main(int argc, char *argv[])
                 fb.stop();
                 try
                 {
-                    view.updateBallState(sv[i], fv[i].getImg());
+                    cv::Mat img = fv[i].getImg();
+                    cv::circle(img, cv::Point(sv[i].getX(),sv[i].getY()),3,
+                           cv::Scalar(255,255,255),cv::FILLED);
+                    view.updateBallState(sv[i], img);
 #ifdef DEBUG
                     std::cout << sv[i].getX() << " " << sv[i].getY() << std::endl;
 #endif
@@ -79,5 +74,28 @@ int main(int argc, char *argv[])
             }
         }
     }
-    return app.exec();
+}
+
+/**
+ * Main program entry
+ */
+int main(int argc, char *argv[])
+{
+    QApplication app(argc, argv);
+
+    Camera view;
+    view.show();
+    std::cout << "This is the ball tracker" << std::endl;
+
+    gpub::HSVThreshold tracker;
+    gpub::FrameBuffer fb = gpub::CameraDriver();
+
+	bool killSwitch = true;
+    std::thread ballTracker(track, view, tracker, fb, killSwitch);
+
+    int ret = 0;
+    ret = app.exec();
+    killSwitch = false;
+    ballTracker.join();
+    return ret;
 }
