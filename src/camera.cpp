@@ -64,6 +64,9 @@
 
 #include <QtWidgets>
 
+#include <stdexcept>
+#include <opencv2/opencv.hpp>
+#include "../inc/logic.hpp"
 Q_DECLARE_METATYPE(QCameraInfo)
 
 Camera::Camera() : ui(new Ui::Camera)
@@ -428,4 +431,19 @@ void Camera::closeEvent(QCloseEvent *event)
     } else {
         event->accept();
     }
+}
+
+void Camera::updateBallState(gpub::State state, cv::Mat img){
+
+    if(img.empty() == true)
+        throw std::exception();
+
+        // OpenCV to QImage datatype to display on labels
+        cv::cvtColor(img,img,CV_BGR2RGB);
+        QImage qimgOriginal((uchar*) img.data,img.cols,img.rows,img.step,QImage::Format_RGB888);            // for color images
+        QImage qimgProcessed((uchar*) img.data,img.cols,img.rows,img.step,QImage::Format_Indexed8);         // for grayscale images
+
+        // Update the labels on the form
+        ui->lastImagePreviewLabel->setPixmap(QPixmap::fromImage(qimgOriginal));
+
 }

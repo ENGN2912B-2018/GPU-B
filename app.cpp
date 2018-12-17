@@ -11,7 +11,6 @@
 #include <iostream>
 #include <vector>
 #include <QtWidgets>
-#include "./inc/view.hpp"
 #include "./inc/logic.hpp"
 #include "./inc/driver.hpp"
 #include "./inc/camera.h"
