@@ -1,10 +1,13 @@
 # Ball Tracker - Group GPU-B
 <p align="center">
      <b>Scientific Programming in C++</b><br />
-     <b>ENGN-2912B S01<br />
+     <b>ENGN-2912B Section 01<br />
      <b>Brown University</b><br />
-     December 2018<br />
+     <b>School of Engineering</b><br />
+     <br />
      <img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Brown_Logo_3.png" width="150" title="Brown Logo"><br />
+     <br /><br /><br />
+     December 2018<br />
 </p>
 
 ## Team Members
