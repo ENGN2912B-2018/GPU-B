@@ -35,7 +35,7 @@ Qt Creator 4.8.0<br />
 Qt 5.12.0<br />
 MinGW 7.3.0 64bit for C++<br />
 OpenCV 3.4.4<br />
-OpenCL 2.1<br />
+OpenCL 2.2<br />
 OpenMP 4.5<br />
 
 ### Functional Bolck Diagrams
@@ -45,8 +45,6 @@ OpenMP 4.5<br />
 ### UML Diagrams
 The UML Diagram for this program is shown as follow: <br />
 <img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Classes.png" width="450" title="UML"><br /><br />
-
-```A refreshed version from previous report??```
 
 ## Interface Descriptions
 ### Graphical Interface
@@ -74,6 +72,7 @@ All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be 
 
 <b>Step 2:</b> Install all required libraries and packages, the download links are given as follow:<br />
 [OpenCV 4.3.3](https://opencv.org)<br />
+[OpenCL 2.2](https://www.khronos.org/opencl/)<br />
 [OpenMP 4.5](https://www.openmp.org)<br />
 
 <b>Step 3:</b> Configure all installed libraries and packages in Windows system variables.
