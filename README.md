@@ -1,13 +1,10 @@
 # Ball Tracker - Group GPU-B
-<p align="center">
-     <b>Scientific Programming in C++</b><br />
-     <b>ENGN-2912B Section 01<br />
-     <br />
-     <img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Brown_Logo_3.png" width="150" title="Brown Logo"><br /><br />
-     <b>Brown University</b><br />
-     <b>School of Engineering</b><br /><br />
-     December 2018<br />
-</p>
+<div style="text-align:center; font-weight:bold">
+     <p>Scientific Programming in C++<br>ENGN-2912B Section 01</p>
+     <img src="doc/images/Brown_Logo_3.png" width="150" title="Brown Logo">
+     <p>Brown University <br> School of Engineering</p>
+     <p>December 2018</p>
+</div>
 
 ## Team Members
 [Ziwei Chen](mailto:ziwei_chen1@brown.edu): Product owner, SCRUM master<br />
