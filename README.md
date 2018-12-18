@@ -10,7 +10,7 @@
 </p>
 
 ## Team Members
-[Chen Ziwei](mailto:ziwei_chen1@brown.edu): Product owner, SCRUM master<br />
+[Ziwei Chen](mailto:ziwei_chen1@brown.edu): Product owner, SCRUM master<br />
 [Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu): Senior director of UX and screen design<br />
 [Haoze Zhang](mailto:haoze_zhang@brown.edu): Senior director of software engineering<br />
 
