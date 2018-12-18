@@ -1,6 +1,7 @@
 # Ball Tracker - Group GPU-B
 <p align="center">
-    <b>ENGN-2912B S01 Scientific Programming in C++</b><br />
+    <b>ENGN-2912B S01<br />
+     <b>Scientific Programming in C++</b><br />
      <b>Brown University</b><br />
      <b>December 2018</b><br />
 </p>
