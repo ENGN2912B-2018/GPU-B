@@ -4,7 +4,7 @@
      <b>ENGN-2912B S01<br />
      <b>Brown University</b><br />
      December 2018<br />
-    ```BROWN LOGO HERE```
+    ``` BROWN LOGO HERE ```
 </p>
 
 ## Team Members
@@ -41,27 +41,41 @@ OpenMP 4.5<br />
 ### Data Flow Diagrams
 ```under construction```
 ### UML Diagrams
-```under construction```
+```A refreshed version from previous report??```
 
 ## Interface Descriptions
 ### Graphical Interface
 ```under construction```
 ### Data Visualization
-```under construction```
+```Do we have this?```
 ### Communications Protocols
-```under construction```
+```We don't have this```
 ### Threading and Concurrenty
-```under construction```
+``` Something Here?```
 ### Exception Handling
-```under construction```
+```We have it, but what should be written here?```
 
 ## Testing and Evaluation
 ### Test Enviroment (OS, Compioler, Library)
-```under construction```
+The testing enviroment was set to using the recommended enviroment and libraries, which means using Windows 10 64bit, and Qt 4.8.0 as IDE. The actual Qt version needs to be installed was 5.12.0, and MinGW 7.3.0 64bit for C++ as compiler.
+All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be configured in Windows system variables first, and then properly linked to project in Qt IDE.
+
 ### Description of Function Testing to Date
 ```under construction```
+
 ### Instructions for Compiling and Running
-```under construction```
+Step 1: Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:
+```Component selection image here```
+
+Step 2: Install all required libraries and packages, the download links are given as follow:
+[OpenCV 4.3.3](https://opencv.org)<br />
+[OpenMP 4.5](https://www.openmp.org)<br />
+
+Step 3: Configure all installed libraries and packages in Windows system variables.
+
+Step 4: Configure Qt Creator IDE for using MinGW 7.3.0 64 bit for C++ as the C++ compiler, and link the libraries required to project
+
+Step 5: Compile and run the software. Make sure a camera was attached via. Universal Serial Bus (USB) connection.
 
 ## Conclusions
 ### Major Accoumplishments
@@ -92,7 +106,8 @@ implemented the interfac between driver and algorithm, which allows the algorith
 Jocelyn Cheng was responsable for graphical user interface development and design. The UI/UX design was the essencial for easy user interaction,  and it was implemented by using Qt IDE. In addition, she also implemented the interface
 between algorithm and GUI, which made it possible for user to visualize the realtime performance on screen.
 ### Haoze Zhang
-He was responsable for tracking algorithm, and system interfacing. He implemented the actual tracking algorithm by using templet matching. He also finished the main program, and interface all components to make the software as one piece.
+He was responsable for tracking algorithm, system interfacing, and software architecture. He implemented the actual tracking algorithm by using templet matching. He also finished the main program, and interface all components to make the 
+software as one piece.
 
 
 
