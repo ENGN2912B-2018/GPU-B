@@ -5,8 +5,7 @@
      <br />
      <img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Brown_Logo_3.png" width="150" title="Brown Logo"><br /><br />
      <b>Brown University</b><br />
-     <b>School of Engineering</b><br />
-     <br /><br /><br />
+     <b>School of Engineering</b><br /><br />
      December 2018<br />
 </p>
 
