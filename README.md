@@ -1,10 +1,8 @@
 # Ball Tracker - Group GPU-B
 <p align="center">
-
-### ENGN-2912B S01 Scientific Programming in C++
-#### Brown University
-#### December 2018
-
+    <b>ENGN-2912B S01 Scientific Programming in C++</b><br />
+     <b>Brown University</b><br />
+     <b>December 2018</b><br />
 </p>
 
 ## Team Members
@@ -27,6 +25,7 @@ should also be designed to be easy to use, which means instead of a design by en
 ## Software Architecture Design
 ### Required External Libraries
 This software requires the suport of external libraries and specific enviroment for compiling and running. Although the use case may very, the recommended requirement list is shown as follow:
+
 Windows 10 Pro  64bit<br />
 Qt Creator 4.8.0<br />
 Qt 5.12.0<br />
@@ -72,7 +71,10 @@ best stability possible.
 ```under construction```
 
 ### Were you successful in meeting all goals and objectives?  What didn't work?  What would take more time?
-```under construction```
+Most of the development objectives were achieved. The program is utilizing the computational power of GPU for algorithm acceleration, and the graphical user interface is useable. The actual tracking performance, nevertheless, is limited.
+The tracking object needs to be traveled at minimal speed for the program to follow. This was resulted by the low frame rate and low sensitivity of the camera, and cannot be resolved by software. The time consuming for the implementation
+of individual functions were well with in expectation. The system integration, however, tooks most time of this project. Since the development enviroment was not unified, switching between different operation systems caused software incompatibility
+issues, and a considerable amount of time was devoted into solve them. 
 
 ## Future Work
 ### Potential future software expansions and software features
@@ -83,12 +85,12 @@ problem was due to the low sensibility and low frame rate for the hardware camer
 ## Author Contributions
 ### Ziwei Chen
 Ziwei Chen was responsable for hardware camera setup, and video stream buffering. He implemented the hardware driver for this softwre, and beffer the captured video stream for ensuring realtime processing can be achieved. He also
-implemented the interfac between driver and algorithm, which allows the algorithm to control the buffer status.
+implemented the interfac between driver and algorithm, which allows the algorithm to control the buffer status. He was also responsable for holding regular team meetings, and setup meeting agendas to push the development forward. 
 ### Jocelyn Cheng
 Jocelyn Cheng was responsable for graphical user interface development and design. The UI/UX design was the essencial for easy user interaction,  and it was implemented by using Qt IDE. In addition, she also implemented the interface
 between algorithm and GUI, which made it possible for user to visualize the realtime performance on screen.
 ### Haoze Zhang
-He was responsable for tracking algorithm, and system interfacing. He implemented the actual tracking algorithm by using templet matching, and also finished the main program, and interface all components to make the software as one piece.
+He was responsable for tracking algorithm, and system interfacing. He implemented the actual tracking algorithm by using templet matching. He also finished the main program, and interface all components to make the software as one piece.
 
 
 
