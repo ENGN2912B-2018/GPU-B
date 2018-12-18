@@ -10,9 +10,9 @@
 </p>
 
 ## Team Members
-[Chen Ziwei](mailto:ziwei_chen1@brown.edu)<br />
-[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu)<br />
-[Haoze Zhang](mailto:haoze_zhang@brown.edu)<br />
+[Chen Ziwei](mailto:ziwei_chen1@brown.edu): Product owner, SCRUM master<br />
+[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu): Senior director of UX and screen design<br />
+[Haoze Zhang](mailto:haoze_zhang@brown.edu): Senior director of software engineering<br />
 
 
 ## Introduction
@@ -43,6 +43,7 @@ OpenMP 4.5<br />
 ### Data Flow Diagrams
 ```under construction```
 ### UML Diagrams
+The UML Diagram for this program is shown as follow: <br />
 ```A refreshed version from previous report??```
 
 ## Interface Descriptions
@@ -66,18 +67,18 @@ All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be 
 ```under construction```
 
 ### Instructions for Compiling and Running
-Step 1: Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:<br />
+<b>Step 1:</b> Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:<br />
 ```Component selection image here```
 
-Step 2: Install all required libraries and packages, the download links are given as follow:<br />
+<b>Step 2:</b> Install all required libraries and packages, the download links are given as follow:<br />
 [OpenCV 4.3.3](https://opencv.org)<br />
 [OpenMP 4.5](https://www.openmp.org)<br />
 
-Step 3: Configure all installed libraries and packages in Windows system variables.
+<b>Step 3:</b> Configure all installed libraries and packages in Windows system variables.
 
-Step 4: Configure Qt Creator IDE for using MinGW 7.3.0 64 bit for C++ as the C++ compiler, and link the libraries required to project
+<b>Step 4:</b> Configure Qt Creator IDE for using MinGW 7.3.0 64 bit for C++ as the C++ compiler, and link the libraries required to project
 
-Step 5: Compile and run the software. Make sure a camera was attached via. Universal Serial Bus (USB) connection.
+<b>Step 5:</b> Compile and run the software. Make sure a camera was attached via. Universal Serial Bus (USB) connection.
 
 ## Conclusions
 ### Major Accoumplishments
