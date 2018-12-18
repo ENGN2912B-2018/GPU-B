@@ -64,10 +64,10 @@ All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be 
 ```under construction```
 
 ### Instructions for Compiling and Running
-Step 1: Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:
+Step 1: Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:<br />
 ```Component selection image here```
 
-Step 2: Install all required libraries and packages, the download links are given as follow:
+Step 2: Install all required libraries and packages, the download links are given as follow:<br />
 [OpenCV 4.3.3](https://opencv.org)<br />
 [OpenMP 4.5](https://www.openmp.org)<br />
 
