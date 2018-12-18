@@ -44,7 +44,7 @@ OpenMP 4.5<br />
 ```under construction```
 ### UML Diagrams
 The UML Diagram for this program is shown as follow: <br />
-<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Classes.png" width="450" title="UML"><br /><br />
+<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Classes.png" width="650" title="UML"><br /><br />
 
 ## Interface Descriptions
 ### Graphical Interface
@@ -68,7 +68,7 @@ All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be 
 
 ### Instructions for Compiling and Running
 <b>Step 1:</b> Since this project was built and compiled in [Qt Creator IDE](https://www.qt.io), the required components is shown as follow:<br />
-```Component selection image here```
+<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/QtInatall.png" width="450" title="Install Component"><br /><br />
 
 <b>Step 2:</b> Install all required libraries and packages, the download links are given as follow:<br />
 [OpenCV 4.3.3](https://opencv.org)<br />
