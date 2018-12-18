@@ -11,14 +11,25 @@
 
 ## Introduction
 ### Overview
-```under construction```
+The conventional object tracking in sports are expensive, and requires highly sophisticated technique for operation. This repository presents a solution for single camera based ball tracking at low cost and with smooth learning curve. 
+The softerware consists a Graphical User Interface (GUI) implemented by using Qt for easy operation, a buffer that developen by using C++ standard templet library (STL) as well as OpenCV to ensures the realtime performance, 
+and an algorithm that utilizes OpenCL, OpenCV, and OpenMP for accurate tracking.
+
 ### Goals and Objectives
-The goal for this project is to...
+The goal for this project was to develop a platform that preformes ball tracking in realtime at low hardware cost. Utilizing the computational power for GPU was set at one of the object for this project, and it ensures the templet matching 
+can be performed in a high efficient manner. In addition, this software platform also requires to be run in realtime in order to give the user instantaneous feedback for ball speed and trajectory. Aside from the performance part, this software
+should also be designed to be easy to use, which means instead of a design by engineer and use by engineer software, it has to be user friendly and the general public shoul be able to use the platform without any technical training. 
 
 ## Software Architecture Design
 ### Required External Libraries
-OpenCV 3.4.4
-OpenMP 4.5
+This software requires the suport of external libraries and specific enviroment for compiling and running. Although the use case may very, the recommended requirement list is shown as follow:
+Windows 10 Pro, 64bit.
+Qt Creator 4.8.0.
+Qt 5.12.0.
+MinGW 7.3.0 64bit for C++
+OpenCV 3.4.4.
+OpenCL 2.1.
+OpenMP 4.5.
 
 ### Functional Bolck Diagrams
 ```under construction```
@@ -49,9 +60,13 @@ OpenMP 4.5
 
 ## Conclusions
 ### Major Accoumplishments
-```under construction```
+For this project, the Graphical User Interface was successfully designed by using Qt. A high speed FIFO buffer was designed by using standard templet library, and video capture and playback function was developed by using OpenCV. 
+In addition, A tracking algorithm was developed, and the program was designed for utilizing multithreading for maximize performance. Aside from functional accoumplishments, the program also consists error handling, which gives it the
+best stability possible.
+
 ### Results of Development Effort
 ```under construction```
+
 ### Were you successful in meeting all goals and objectives?  What didn't work?  What would take more time?
 ```under construction```
 
