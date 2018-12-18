@@ -44,6 +44,8 @@ OpenMP 4.5<br />
 ```under construction```
 ### UML Diagrams
 The UML Diagram for this program is shown as follow: <br />
+<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Classes.png" width="450" title="UML"><br /><br />
+
 ```A refreshed version from previous report??```
 
 ## Interface Descriptions
