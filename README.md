@@ -1,12 +1,16 @@
 # Ball Tracker - Group GPU-B
+<p align="center">
+
 ### ENGN-2912B S01 Scientific Programming in C++
-### December 2018
-### Brown University
+#### Brown University
+#### December 2018
+
+</p>
 
 ## Team Members
-[Chen Ziwei](mailto:ziwei_chen1@brown.edu)
-[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu)
-[Haoze Zhang](mailto:haoze_zhang@brown.edu)
+[Chen Ziwei](mailto:ziwei_chen1@brown.edu)<br />
+[Jocelyn Cheng](mailto:jocelyn_cheng@brown.edu)<br />
+[Haoze Zhang](mailto:haoze_zhang@brown.edu)<br />
 
 
 ## Introduction
@@ -23,13 +27,13 @@ should also be designed to be easy to use, which means instead of a design by en
 ## Software Architecture Design
 ### Required External Libraries
 This software requires the suport of external libraries and specific enviroment for compiling and running. Although the use case may very, the recommended requirement list is shown as follow:
-Windows 10 Pro, 64bit.
-Qt Creator 4.8.0.
-Qt 5.12.0.
-MinGW 7.3.0 64bit for C++
-OpenCV 3.4.4.
-OpenCL 2.1.
-OpenMP 4.5.
+Windows 10 Pro  64bit<br />
+Qt Creator 4.8.0<br />
+Qt 5.12.0<br />
+MinGW 7.3.0 64bit for C++<br />
+OpenCV 3.4.4<br />
+OpenCL 2.1<br />
+OpenMP 4.5<br />
 
 ### Functional Bolck Diagrams
 ```under construction```
@@ -72,15 +76,19 @@ best stability possible.
 
 ## Future Work
 ### Potential future software expansions and software features
-```under construction```
+Although this platform satisfies most development goals, improvements and feature expansions are still possible for future work. Firstly, although the operation for this platform was easy, it still utilizes external dynamically linked libraries, 
+which would be linked in runtime. This limits the usage and downgrade the software compatibility, and may be a potential improvement. In addition, the tracking only works under bright ligntning condition, or slow ball movement. This 
+problem was due to the low sensibility and low frame rate for the hardware camera module. This problem can be improved by switching to a high speed camera that outputs at least 120 frames per second.  
 
 ## Author Contributions
 ### Ziwei Chen
-He was responsable for hardware camera setup, and video stream buffering.
+Ziwei Chen was responsable for hardware camera setup, and video stream buffering. He implemented the hardware driver for this softwre, and beffer the captured video stream for ensuring realtime processing can be achieved. He also
+implemented the interfac between driver and algorithm, which allows the algorithm to control the buffer status.
 ### Jocelyn Cheng
-She was responsable for graphical user interface development and design.
+Jocelyn Cheng was responsable for graphical user interface development and design. The UI/UX design was the essencial for easy user interaction,  and it was implemented by using Qt IDE. In addition, she also implemented the interface
+between algorithm and GUI, which made it possible for user to visualize the realtime performance on screen.
 ### Haoze Zhang
-He was responsable for tracking algorithm, and system interfacing.
+He was responsable for tracking algorithm, and system interfacing. He implemented the actual tracking algorithm by using templet matching, and also finished the main program, and interface all components to make the software as one piece.
 
 
 
@@ -93,7 +101,7 @@ He was responsable for tracking algorithm, and system interfacing.
 
 
 
-
+```
 # Original Content
 
 Practicing pitching baseballs can be hard because getting immediate feedback is hard. Our ball tracker is here to help!
@@ -115,4 +123,4 @@ This program was designed With sports lovers and recreational players in mind, b
 ## Usage
 ```under construction```
 
-
+```
