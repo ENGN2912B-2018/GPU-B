@@ -60,7 +60,7 @@ Moreover, OpenCV library uses OpenCL for parallel matrix operations. Invoking Op
 Exceptions are correctly handled in the software. Since there is not much user interaction, the software does not have intensive sanity checks to deal with user input. Typical exceptions come from hardware and concurrency issues. An exception is thrown when the buffer cannot read a valid frame from the camera, when the tracking algorithm detects an empty or nonprocessable frame, and when the GUI cannot be updated appropriately. These exceptions are caught in the main program and prompted in the console standard error output. No special operations are required in the exception handler since the software acquires real-time data, problems with any frame do not influence future performance and can be safely ignored.
 
 ## Testing and Evaluation
-### Test Environment (OS, Compiler, Library)
+### Test Environment
 The testing environment was set to using the recommended environment and libraries, which means using Windows 10 64bit, and Qt 4.8.0 as IDE. The actual Qt version needs to be installed was 5.12.0, and MinGW 7.3.0 64bit for C++ as the compiler.
 
 All the libraries including OpenCV 4.3.3, OpenCL 2.1, and OpenMP 4.5 need to be configured in Windows system variables first, and then properly linked to project in Qt IDE.
@@ -93,7 +93,6 @@ the best stability possible.
 ### Results of Development Effort
 The result of the development consists of the software design documents, software source code, test cases, test cases executables, and the software executables.
 
-### Were you successful in meeting all goals and objectives?  What didn't work?  What would take more time?
 Most of the development objectives were achieved. The program is utilizing the computational power of GPU for algorithm acceleration, and the graphical user interface is usable. The actual tracking performance, nevertheless, is limited.
 
 The tracking object needs to be traveling at a minimum speed for the program to follow. This was resulted by the low frame rate and low sensitivity of the camera, and cannot be resolved by software. The time consuming for the implementation of individual functions were well within expectation. The system integration, however, took most time of this project. Since the development environment was not unified, switching between different operating systems caused software incompatibility issues, and a considerable amount of time was devoted to solving them.
