@@ -46,7 +46,7 @@ The UML Diagram for this program is shown as follow: <br />
 ## Interface Descriptions
 ### Graphical Interface
 ```under construction```
- <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture.png" width="650" title="UML"><br /><br />
+ <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture.PNG" width="650" title="UML"><br /><br />
 
 ### Data Visualization
 ```Do we have this?```
