@@ -44,20 +44,18 @@ The UML Diagram for this program is shown as follow: <br />
 <img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Classes.png" width="650" title="UML"><br /><br />
 
 ## Interface Descriptions
-### Graphical Interface
+### Graphical Interface and Data Visualization
 
 The user can use the buttons on the first page to capture video and pictures, which are stored in a user-selected folder. Once captured, the video can then be processed by the algorithm. The main UI for the app is shown below:
  <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture.PNG" width="650" title="UML"><br /><br />
 
-Analysis on the video may be visualized on the second tab:
+Analysis on the video and data visualization is accessed via the second tab:
  <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture3.PNG" width="650" title="UML"><br /><br />
  
  Settings for the application are shown below.
  <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture2.PNG" width="450" title="UML"><br /><br />
  <br /><img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture4.PNG" width="450" title="UML"><br /><br />
 
-### Data Visualization
-```Do we have this?```
 ### Communications Protocols
 ```We don't have this```
 ### Threading and Concurrenty
