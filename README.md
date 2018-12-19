@@ -46,10 +46,7 @@ The UML Diagram for this program is shown as follow: <br />
 ## Interface Descriptions
 ### Graphical Interface
 ```under construction```
-<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture.png" width="650" title="UML"><br /><br />
-<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture2.png" width="650" title="UML"><br /><br />
-<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture3.png" width="650" title="UML"><br /><br />
-<img src="https://github.com/ENGN2912B-2018/GPU-B/blob/master/doc/images/Capture4.png" width="650" title="UML"><br /><br />
+<img src="doc/images/Capture.png" width="150" title="Brown Logo">
 
 ### Data Visualization
 ```Do we have this?```
