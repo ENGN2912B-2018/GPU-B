@@ -39,8 +39,17 @@ The UML Class Diagram for this program is shown as follow: <br />
 <img src="doc/images/Classes.png" width="650" title="UML">
 
 ## Interface Descriptions
-### Graphical Interface
-```under construction```
+### Graphical Interface and Data Visualization
+
+The user can use the buttons on the first page to capture video and pictures, which are stored in a user-selected folder. Once captured, the video can then be processed by the algorithm. The main UI for the app is shown below:
+ <br /><img src="doc/images/Capture.PNG" width="650" title="UML"><br /><br />
+
+Analysis on the video and data visualization is accessed via the second tab:
+ <br /><img src="doc/images/Capture3.PNG" width="650" title="UML"><br /><br />
+ 
+ Settings for the application are shown below.
+ <br /><img src="doc/images/Capture2.PNG" width="450" title="UML"><br /><br />
+ <br /><img src="doc/images/Capture4.PNG" width="450" title="UML"><br /><br />
 
 ### Threading and Concurrency
 The software uses [OpenMP](https://www.openmp.org/) multi-threading library to take advantage of a multi-core CPU. In the main program, the workload of processing each frame is distributed to multiple threads. First, a batch of multiple images is extracted from the buffer. The number of images in a batch should be a multiple of the number of CPU cores so that the work distribution can be as even as possible. The batch should also be limited in size since batch process causes delay. Then, with the help of OpenMP, worker threads start to process the batch in parallel, one frame per thread at a time. The result is then processed in a sequential execution.
